@@ -1,6 +1,7 @@
 var DocumentDBClient = require('documentdb').DocumentClient;
 var config = require('./config');
 var TaskList = require('./routes/tasklist');
+var StorageList = require('./routes/blobstorage');
 var TaskModel = require('./models/task-model');
 
 
@@ -30,8 +31,9 @@ let docDbClient = new DocumentDBClient(config.host, {
 });
 let taskModel = new TaskModel(docDbClient, config.databaseId, config.collectionId);
 let taskList = new TaskList(taskModel);
+let storageList = new StorageList();
 taskModel.init();
-
+storageList.downloadBlob();
 app.get('/', taskList.showTasks.bind(taskList));
 app.post('/addtask', taskList.addTask.bind(taskList));
 app.post('/completetask', taskList.completeTask.bind(taskList));

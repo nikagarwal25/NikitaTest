@@ -1,9 +1,14 @@
 
-let config = {}
 
-config.host = "";
-config.authKey = "";
-config.databaseId = "";
-config.collectionId = "";
 
-module.exports = config;
+
+//let config = {}
+
+//config.host = "";
+//config.authKey = "==";
+//config.databaseId = "AllShipment";
+//config.collectionId = "AllShipmentMetadata";
+
+//module.exports = config;
+
+
